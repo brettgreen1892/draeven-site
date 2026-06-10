@@ -176,7 +176,7 @@ export default function Home() {
       </section>
 
       <section className="final">
-        <p>Prevent bad information from becoming bad decisions.</p>
+        <p>We prevent bad information from becoming bad decisions.</p>
         <a href="mailto:brett@draeven.us">Contact Draeven</a>
       </section>
     </main>
