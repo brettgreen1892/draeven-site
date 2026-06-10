@@ -69,7 +69,7 @@ export default function Home() {
           </div>
         </motion.div>
         </section>
-        
+
 
         <motion.div
   className="brainPanel"
@@ -177,7 +177,7 @@ export default function Home() {
 
       <section className="final">
         <p>Prevent bad information from becoming bad decisions.</p>
-        <a href="mailto:contact@draeven.us">Contact Draeven</a>
+        <a href="mailto:brett@draeven.us">Contact Draeven</a>
       </section>
     </main>
   );
