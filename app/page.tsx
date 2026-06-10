@@ -1,54 +1,37 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Shield, Radio, Network, Cpu, Eye, Crosshair } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import WorldModelScene from './WorldModelScene';
 
-const loop = ['OBSERVE', 'VERIFY', 'BELIEVE', 'PREDICT', 'DECIDE'];
-
-const pillars = [
-  {
-    icon: Shield,
-    title: 'Reality Integrity',
-    text: 'Parallax evaluates whether incoming information reflects reality before it is allowed to influence operational decisions.',
-  },
-  {
-    icon: Network,
-    title: 'Belief-State Intelligence',
-    text: 'Fragmented observations become probabilistic understanding through uncertainty-aware reasoning and evidence fusion.',
-  },
-  {
-    icon: Radio,
-    title: 'Contested Edge Autonomy',
-    text: 'Designed for spoofing, RF denial, degraded sensors, disconnected operations, and environments where certainty does not exist.',
-  },
+const capabilities = [
+  ['001', 'Observe', 'Ingest fragmented signals from degraded, disconnected, and contested environments.'],
+  ['002', 'Verify', 'Challenge every input before it is allowed to influence operational belief.'],
+  ['003', 'Believe', 'Fuse evidence into probabilistic understanding with uncertainty preserved.'],
+  ['004', 'Predict', 'Forecast adversarial movement, terrain change, spoofing risk, and mission state.'],
+  ['005', 'Decide', 'Convert trusted belief into action-ready intelligence at the edge.'],
+  ['006', 'Recover', 'Detect compromised reality states and restore decision integrity.'],
+  ['007', 'Adapt', 'Continuously update the world model as conditions change.'],
 ];
 
 const architecture = [
   'Reality Integrity Assessment',
   'Evidence Reservoir',
   'Belief-State Engine',
-  'Planetary Core',
   'Temporal Prediction',
   'Autonomous Decision Layer',
 ];
-
-
 
 export default function Home() {
   return (
     <main className="site">
       <div className="noise" />
-      <div className="mesh" />
       <WorldModelScene />
-      <div className="orbital o1" />
-      <div className="orbital o2" />
 
       <nav className="nav">
         <div className="brand">DRAEVEN</div>
         <div className="navLinks">
-          <a href="#mission">Mission</a>
-          <a href="#loop">Cognition</a>
+          <a href="#capabilities">Capabilities</a>
           <a href="#architecture">Architecture</a>
           <a href="mailto:brett@draeven.us">Contact</a>
         </div>
@@ -56,100 +39,85 @@ export default function Home() {
 
       <section className="hero">
         <motion.div
-          className="heroText"
+          className="heroInner"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <p className="eyebrow">PARALLAX / EDGE-NATIVE AUTONOMOUS INTELLIGENCE</p>
+          <p className="programLabel">PARALLAX / DRAEVEN</p>
 
-          <h1>Autonomous intelligence for the edge of certainty.</h1>
+          <h1>Redefining decision superiority.</h1>
 
-          <p className="sub">
-            Parallax transforms fragmented observations into trusted operational understanding
-            across degraded, contested, and disconnected environments.
+          <p className="heroSub">
+            Autonomous intelligence that verifies reality before systems act.
           </p>
 
-          <div className="heroActions">
-            <a href="mailto:brett@draeven.us">
-              Request Access <ArrowRight size={16} />
-            </a>
-            <span>Controlled capability preview</span>
-          </div>
+          <a className="briefLink" href="mailto:brett@draeven.us">
+            Request capability brief <ArrowRight size={15} />
+          </a>
+
+          <motion.div
+            className="liveReadout"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: [0, 1, 1, 0], y: [10, 0, 0, -6] }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+              repeatDelay: 3,
+              ease: 'easeInOut',
+            }}
+          >
+            <span>LIVE COGNITION READOUT</span>
+            <strong>OBS 17,422</strong>
+            <strong>TRUST 0.934</strong>
+            <strong>CONFLICTS 2,183</strong>
+          </motion.div>
         </motion.div>
-
-       
       </section>
 
-      <section className="statement" id="mission">
-        <motion.h2
-          initial={{ opacity: 0, y: 36 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-120px' }}
-          transition={{ duration: 0.8 }}
-        >
-          Most systems collect observations.
-          <span> Parallax evaluates reality.</span>
-        </motion.h2>
-      </section>
+      <section className="capabilities" id="capabilities">
+        <div className="sectionHeader">
+          <p>Capabilities</p>
+          <h2>Parallax transforms uncertainty into trusted operational belief.</h2>
+        </div>
 
-      <section className="loopSection" id="loop">
-        <p className="eyebrow">COGNITION LOOP</p>
-
-        <div className="loop">
-          {loop.map((item, index) => (
-            <motion.div
-              key={item}
-              className="loopNode"
-              initial={{ opacity: 0, y: 28 }}
+        <div className="capabilityRows">
+          {capabilities.map(([num, title, text]) => (
+            <motion.article
+              key={title}
+              className="capabilityRow"
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.12, duration: 0.65 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.65 }}
             >
-              <span>0{index + 1}</span>
-              <strong>{item}</strong>
-            </motion.div>
+              <span>{num}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </motion.article>
           ))}
         </div>
       </section>
 
-      <section className="pillars">
-        {pillars.map((pillar, index) => {
-          const Icon = pillar.icon;
-
-          return (
-            <motion.article
-              key={pillar.title}
-              className="pillar"
-              initial={{ opacity: 0, y: 34 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.12, duration: 0.7 }}
-            >
-              <Icon size={28} />
-              <h3>{pillar.title}</h3>
-              <p>{pillar.text}</p>
-            </motion.article>
-          );
-        })}
-      </section>
-
       <section className="architecture" id="architecture">
-        <p className="eyebrow">SYSTEM ARCHITECTURE</p>
-        <h2>Observation becomes evidence. Evidence becomes belief. Belief becomes action.</h2>
+        <div className="sectionHeader">
+          <p>Architecture</p>
+          <h2>Observation becomes evidence. Evidence becomes belief. Belief becomes action.</h2>
+        </div>
 
-        <div className="archFlow">
-          {architecture.map((item) => (
-            <div key={item}>{item}</div>
+        <div className="architectureRows">
+          {architecture.map((item, index) => (
+            <div key={item}>
+              <span>0{index + 1}</span>
+              <strong>{item}</strong>
+            </div>
           ))}
         </div>
       </section>
 
       <section className="final">
-        <div>
-          <p>We prevent bad information from becoming bad decisions.</p>
-          <a href="mailto:brett@draeven.us">Contact Draeven</a>
-        </div>
+        <p>Bad information does not get to decide.</p>
+        <a href="mailto:brett@draeven.us">Contact Draeven</a>
       </section>
     </main>
   );
