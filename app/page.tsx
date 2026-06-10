@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Shield, Radio, Orbit, Network } from 'lucide-react';
+import { ArrowRight, Shield, Radio, Network, Cpu, Eye, Crosshair } from 'lucide-react';
 import WorldModelScene from './WorldModelScene';
 
 const loop = ['OBSERVE', 'VERIFY', 'BELIEVE', 'PREDICT', 'DECIDE'];
@@ -24,6 +24,17 @@ const pillars = [
   },
 ];
 
+const architecture = [
+  'Reality Integrity Assessment',
+  'Evidence Reservoir',
+  'Belief-State Engine',
+  'Planetary Core',
+  'Temporal Prediction',
+  'Autonomous Decision Layer',
+];
+
+
+
 export default function Home() {
   return (
     <main className="site">
@@ -39,7 +50,7 @@ export default function Home() {
           <a href="#mission">Mission</a>
           <a href="#loop">Cognition</a>
           <a href="#architecture">Architecture</a>
-          <a href="mailto:contact@draeven.us">Contact</a>
+          <a href="mailto:brett@draeven.us">Contact</a>
         </div>
       </nav>
 
@@ -52,13 +63,11 @@ export default function Home() {
         >
           <p className="eyebrow">PARALLAX / EDGE-NATIVE AUTONOMOUS INTELLIGENCE</p>
 
-          <h1>
-            Autonomous intelligence for the edge of certainty.
-          </h1>
+          <h1>Autonomous intelligence for the edge of certainty.</h1>
 
           <p className="sub">
-            Parallax transforms fragmented observations into trusted operational
-            understanding across degraded, contested, and disconnected environments.
+            Parallax transforms fragmented observations into trusted operational understanding
+            across degraded, contested, and disconnected environments.
           </p>
 
           <div className="heroActions">
@@ -68,43 +77,9 @@ export default function Home() {
             <span>Controlled capability preview</span>
           </div>
         </motion.div>
-        </section>
 
-
-        <motion.div
-  className="brainPanel"
-  initial={{ opacity: 0, scale: 0.96, y: 30 }}
-  animate={{ opacity: 1, scale: 1, y: 0 }}
-  transition={{ delay: 0.35, duration: 1 }}
->
-  <div className="brainHeader">
-    <span>PARALLAX COGNITION ENGINE</span>
-    <b>LIVE</b>
-  </div>
-
-  <div className="brainVisual">
-    
-  </div>
-
-  <div className="brainStats">
-    <div>
-      <span>OBSERVATIONS</span>
-      <strong>17,422</strong>
-    </div>
-    <div>
-      <span>ACTIVE HYPOTHESES</span>
-      <strong>38</strong>
-    </div>
-    <div>
-      <span>BELIEF CONFIDENCE</span>
-      <strong>0.934</strong>
-    </div>
-    <div>
-      <span>CONFLICTS RESOLVED</span>
-      <strong>2,183</strong>
-    </div>
-  </div>
-</motion.div>
+       
+      </section>
 
       <section className="statement" id="mission">
         <motion.h2
@@ -120,6 +95,7 @@ export default function Home() {
 
       <section className="loopSection" id="loop">
         <p className="eyebrow">COGNITION LOOP</p>
+
         <div className="loop">
           {loop.map((item, index) => (
             <motion.div
@@ -140,6 +116,7 @@ export default function Home() {
       <section className="pillars">
         {pillars.map((pillar, index) => {
           const Icon = pillar.icon;
+
           return (
             <motion.article
               key={pillar.title}
@@ -162,22 +139,17 @@ export default function Home() {
         <h2>Observation becomes evidence. Evidence becomes belief. Belief becomes action.</h2>
 
         <div className="archFlow">
-          {[
-            'Reality Integrity Assessment',
-            'Evidence Reservoir',
-            'Belief-State Engine',
-            'Planetary Core',
-            'Temporal Prediction',
-            'Autonomous Decision Layer',
-          ].map((item) => (
+          {architecture.map((item) => (
             <div key={item}>{item}</div>
           ))}
         </div>
       </section>
 
       <section className="final">
-        <p>We prevent bad information from becoming bad decisions.</p>
-        <a href="mailto:brett@draeven.us">Contact Draeven</a>
+        <div>
+          <p>We prevent bad information from becoming bad decisions.</p>
+          <a href="mailto:brett@draeven.us">Contact Draeven</a>
+        </div>
       </section>
     </main>
   );
