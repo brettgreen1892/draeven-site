@@ -4,15 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-const capabilities = [
-  ['001', 'Observe', 'Ingest fragmented signals from degraded, disconnected, and contested environments.'],
-  ['002', 'Verify', 'Challenge every input before it is allowed to influence operational belief.'],
-  ['003', 'Believe', 'Fuse evidence into probabilistic understanding with uncertainty preserved.'],
-  ['004', 'Predict', 'Forecast adversarial movement, terrain change, spoofing risk, and mission state.'],
-  ['005', 'Decide', 'Convert trusted belief into action-ready intelligence at the edge.'],
-  ['006', 'Recover', 'Detect compromised reality states and restore decision integrity.'],
-  ['007', 'Adapt', 'Continuously update the world model as conditions change.'],
-];
+
 
 const architecture = [
   'Reality Integrity Assessment',
@@ -137,6 +129,44 @@ function LiveEventStream() {
 );
 }
 
+function WordReveal({
+  text,
+  delay = 0,
+}: {
+  text: string;
+  delay?: number;
+}) {
+  const words = text.split(' ');
+
+  return (
+    <>
+      {words.map((word, index) => (
+        <motion.span
+          key={`${word}-${index}`}
+          initial={{
+            opacity: 0,
+            y: 10,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.45,
+            delay: delay + index * 0.08,
+          }}
+          style={{
+            display: 'inline-block',
+            marginRight: '0.35em',
+          }}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </>
+  );
+}
+
 export default function Home() {
   return (
     <main className="site">
@@ -164,11 +194,38 @@ export default function Home() {
         >
           <p className="programLabel">PARALLAX by DRAEVEN</p>
 
-          <h1>Redefining decision superiority.</h1>
+          <motion.h1 className="heroTitle">
+  {['REDEFINING', 'DECISION', 'SUPERIORITY.'].map((word, index) => (
+    <motion.span
+      key={word}
+      className="heroTitleLine"
+      initial={{
+        opacity: 0,
+        y: 70,
+        filter: 'blur(4px)',
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+      }}
+      transition={{
+        duration: 1.5,
+        delay: 0.7 + index * 0.5,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+    >
+      {word}
+    </motion.span>
+  ))}
+</motion.h1>
 
           <p className="heroSub">
-            Autonomous intelligence that verifies reality before systems act.
-          </p>
+  <WordReveal
+    delay={2.8}
+    text="Autonomous intelligence that verifies reality before systems act."
+  />
+</p>
 
           <a className="briefLink" href="mailto:brett@draeven.us">
             Request capability brief
@@ -179,29 +236,36 @@ export default function Home() {
         <LiveEventStream />
       </section>
 
-      <section className="capabilities" id="capabilities">
-        <div className="sectionHeader">
-          <p>Capabilities</p>
-          <h2>Parallax transforms uncertainty into trusted operational belief.</h2>
-        </div>
+      <section className="capabilities sectionWithImage" id="capabilities">
+  <div className="sectionTwoImage" />
+  <div className="sectionTwoGradient" />
 
-        <div className="capabilityRows">
-          {capabilities.map(([num, title, text]) => (
-            <motion.article
-              key={title}
-              className="capabilityRow"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.65 }}
-            >
-              <span>{num}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </motion.article>
-          ))}
-        </div>
-      </section>
+  <motion.div
+    className="capabilitiesInner"
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-120px' }}
+    transition={{ duration: 0.7 }}
+  >
+    <p className="sectionEyebrow">Capabilities</p>
+
+    <h2>
+      Autonomous systems built to act when certainty disappears.
+    </h2>
+
+    <p className="capabilitiesLead">
+      Draeven develops edge-native intelligence systems for contested,
+      degraded, and high-consequence environments.
+    </p>
+
+    <div className="capabilityPills">
+      <span>Reality Validation</span>
+      <span>Edge Autonomy</span>
+      <span>Mission Assurance</span>
+      <span>Predictive Intelligence</span>
+    </div>
+  </motion.div>
+</section>
 
       <section className="architecture" id="architecture">
         <div className="sectionHeader">
