@@ -484,26 +484,76 @@ h1 {
 
 @media (max-width: 650px) {
   .nav {
-    padding: 0 24px;
+    height: 68px;
+    padding: 0 20px;
+    background: rgba(2, 1, 6, 0.82);
+  }
+
+  .brand {
+    font-size: 13px;
+    letter-spacing: 0.26em;
   }
 
   .hero {
-    min-height: 100vh;
-    padding: 108px 24px 70px;
+    min-height: 100svh;
+    padding: 96px 20px 56px;
+    align-items: flex-end;
   }
 
   .heroImage {
-    background-position: center center;
-    filter: brightness(0.28) contrast(1.18) saturate(0.65);
+    background-position: 58% center;
+    transform: scale(1.03);
+    filter:
+      brightness(0.42)
+      contrast(1.15)
+      saturate(0.68);
+  }
+
+  .heroGradient {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(2,1,6,0.72) 0%,
+        rgba(2,1,6,0.24) 34%,
+        rgba(2,1,6,0.58) 68%,
+        rgba(2,1,6,0.96) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(2,1,6,0.86) 0%,
+        rgba(2,1,6,0.22) 55%,
+        rgba(2,1,6,0.74) 100%
+      );
+  }
+
+  .heroInner {
+    width: 100%;
+    padding-top: 34vh;
+  }
+
+  .programLabel {
+    margin-bottom: 18px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
   }
 
   h1 {
-    font-size: clamp(52px, 16vw, 84px);
-    line-height: 0.88;
+    font-size: clamp(46px, 15vw, 76px);
+    line-height: 0.9;
+    letter-spacing: -0.075em;
   }
 
   .heroSub {
-    font-size: 18px;
+    margin-top: 22px;
+    max-width: 92%;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .briefLink {
+    margin-top: 26px;
+    font-size: 10px;
+    letter-spacing: 0.13em;
   }
 
   .telemetryGhost,
@@ -514,6 +564,52 @@ h1 {
   .capabilities,
   .architecture,
   .final {
-    padding: 86px 24px;
+    padding: 78px 20px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 46px;
+  }
+
+  .sectionHeader h2 {
+    font-size: clamp(34px, 12vw, 54px);
+    line-height: 0.94;
+    letter-spacing: -0.065em;
+  }
+
+  .capabilityRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    min-height: auto;
+    padding: 30px 0;
+  }
+
+  .capabilityRow h3 {
+    font-size: clamp(34px, 13vw, 58px);
+  }
+
+  .capabilityRow p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .architectureRows div {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    min-height: auto;
+    padding: 26px 0;
+  }
+
+  .architectureRows strong {
+    font-size: clamp(28px, 10vw, 48px);
+  }
+
+  .final {
+    min-height: 64vh;
+  }
+
+  .final p {
+    font-size: clamp(42px, 15vw, 72px);
+    line-height: 0.9;
   }
 }
