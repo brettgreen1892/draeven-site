@@ -594,41 +594,38 @@ a {
   }
 
   .hero {
-    min-height: 100svh;
-    padding: 96px 20px 56px;
-    align-items: flex-end;
-  }
+  min-height: 100svh;
+  padding: 86px 24px 60px;
+  display: flex;
+  align-items: center;
+}
 
-  .heroImage {
-    background-position: 58% center;
-    transform: scale(1.03);
-    filter:
-      brightness(0.42)
-      contrast(1.15)
-      saturate(0.68);
-  }
+.heroInner {
+  width: 100%;
+  padding-top: 0;
+  margin-top: 6vh;
+}
 
-  .heroGradient {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(2,1,6,0.72) 0%,
-        rgba(2,1,6,0.24) 34%,
-        rgba(2,1,6,0.58) 68%,
-        rgba(2,1,6,0.96) 100%
-      ),
-      linear-gradient(
-        90deg,
-        rgba(2,1,6,0.86) 0%,
-        rgba(2,1,6,0.22) 55%,
-        rgba(2,1,6,0.74) 100%
-      );
-  }
+.heroImage {
+  background-position: 54% center;
+  transform: scale(1.02);
+  filter:
+    brightness(0.50)
+    contrast(1.15)
+    saturate(0.68);
+}
 
-  .heroInner {
-    width: 100%;
-    padding-top: 34vh;
-  }
+.heroTitle {
+  font-size: clamp(48px, 14vw, 72px);
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+}
+
+.heroSub {
+  margin-top: 30px;
+  font-size: 25px;
+  line-height: 1.45;
+}
 
   .programLabel {
     margin-bottom: 18px;
