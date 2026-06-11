@@ -36,8 +36,8 @@ a {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 72% 18%, rgba(123, 77, 255, 0.22), transparent 36%),
-    radial-gradient(circle at 18% 82%, rgba(80, 30, 150, 0.16), transparent 34%),
+    radial-gradient(circle at 72% 18%, rgba(123, 77, 255, 0.18), transparent 36%),
+    radial-gradient(circle at 18% 82%, rgba(80, 30, 150, 0.12), transparent 34%),
     linear-gradient(180deg, #020106 0%, #05020c 50%, #000 100%);
 }
 
@@ -47,36 +47,28 @@ a {
   inset: 0;
   pointer-events: none;
   z-index: 2;
+
   background:
-    radial-gradient(circle at center, transparent 34%, rgba(0, 0, 0, 0.88) 100%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), transparent 12%, transparent 88%, rgba(255,255,255,.02));
+    radial-gradient(
+      circle at center,
+      transparent 55%,
+      rgba(0,0,0,0.55) 100%
+    );
 }
 
 .noise {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.06;
+  opacity: 0.055;
   background-image:
     linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px),
     linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
   background-size: 3px 3px;
-  z-index: 3;
+  z-index: 12;
 }
 
-.worldScene {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  opacity: 0.72;
-  pointer-events: none;
-  filter: saturate(1.15) contrast(1.12) hue-rotate(42deg);
-}
 
-.worldScene canvas {
-  width: 100% !important;
-  height: 100% !important;
-}
 
 /* NAV */
 
@@ -86,7 +78,7 @@ a {
   left: 0;
   right: 0;
   height: 78px;
-  z-index: 20;
+  z-index: 30;
   display: flex;
   align-items: center;
   padding: 0 6vw;
@@ -119,15 +111,63 @@ a {
 
 .hero {
   position: relative;
-  z-index: 4;
-  min-height: 112vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 132px 6vw 90px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+
+  background-image: url('/background_Drone.png');
+
+  background-size: cover;
+  background-position: center center;
+
+  z-index: 0;
+
+  transform: scale(1.02);
+
+  filter:
+    brightness(0.90)
+    contrast(1.18)
+    saturate(0.7);
+
+  opacity: 1;
+}
+
+.heroGradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2,1,6,0.85) 0%,
+      rgba(2,1,6,0.45) 25%,
+      rgba(2,1,6,0.10) 50%,
+      rgba(2,1,6,0.40) 75%,
+      rgba(2,1,6,0.85) 100%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(2,1,6,0.70) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(2,1,6,0.88) 100%
+    );
 }
 
 .heroInner {
-  width: min(1120px, 100%);
+  width: min(980px, 100%);
+  position: relative;
+  z-index: 8;
 }
 
 .programLabel {
@@ -140,9 +180,9 @@ a {
 }
 
 h1 {
-  max-width: 1180px;
+  max-width: 980px;
   margin: 0;
-  font-size: clamp(72px, 10.5vw, 168px);
+  font-size: clamp(72px, 10.1vw, 158px);
   line-height: 0.84;
   letter-spacing: -0.09em;
   text-transform: uppercase;
@@ -175,34 +215,103 @@ h1 {
   border-color: var(--purple2);
 }
 
-.liveReadout {
-  margin-top: 42px;
-  display: inline-grid;
-  grid-template-columns: auto auto auto auto;
-  gap: 18px;
-  align-items: center;
-  padding: 12px 15px;
-  border: 1px solid rgba(185, 156, 255, 0.18);
-  background: rgba(8, 4, 18, 0.48);
-  backdrop-filter: blur(14px);
-  box-shadow:
-    inset 0 0 30px rgba(123, 77, 255, 0.08),
-    0 20px 80px rgba(0, 0, 0, 0.36);
+/* GHOST TELEMETRY FLOW */
+
+.telemetryGhost,
+.liveEventStream {
+  position: absolute;
+  z-index: 9;
+  top: 13%;
+  right: 2.2vw;
+  width: min(470px, 29vw);
+  pointer-events: none;
+  font-family: var(--font-geist-mono), Consolas, monospace;
+  opacity: 0.42;
+  mix-blend-mode: screen;
 }
 
-.liveReadout span {
-  color: var(--muted);
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.liveReadout strong {
-  color: #eee8ff;
+.telemetryTitle,
+.streamHeader {
+  margin-bottom: 18px;
+  color: rgba(185, 156, 255, 0.66);
   font-size: 10px;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  text-shadow: 0 0 18px rgba(185, 156, 255, 0.2);
 }
+
+.telemetryTitle::before,
+.streamHeader::before {
+  content: "● ";
+  color: rgba(185, 156, 255, 0.75);
+}
+
+.telemetryViewport {
+  position: relative;
+  height: 330px;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 14%,
+    black 86%,
+    transparent 100%
+  );
+}
+
+.telemetryLines {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  min-height: 330px;
+  will-change: transform;
+}
+
+.telemetryRow:last-child {
+  animation: telemetryFadeIn 0.35s ease both;
+}
+
+@keyframes telemetryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.telemetryRow,
+.streamBody p {
+  margin: 0;
+  color: rgba(242, 240, 255, 0.28);
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  text-shadow: 0 0 18px rgba(185, 156, 255, 0.1);
+}
+
+.telemetryRow b,
+.telemetryLines b,
+.streamBody b {
+  color: rgba(185, 156, 255, 0.58);
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+
+
+.streamAlert {
+  color: rgba(255, 51, 78, 0.6) !important;
+  font-weight: 900;
+}
+
+
 
 /* SECTIONS */
 
@@ -210,8 +319,9 @@ h1 {
 .architecture,
 .final {
   position: relative;
-  z-index: 4;
+  z-index: 5;
   padding: 118px 6vw;
+  background: linear-gradient(180deg, rgba(2,1,6,0.94), rgba(0,0,0,0.96));
 }
 
 .sectionHeader {
@@ -334,6 +444,31 @@ h1 {
     display: none;
   }
 
+  .hero {
+    min-height: 112vh;
+    display: block;
+    padding-top: 132px;
+  }
+
+  .heroImage {
+    background-position: center center;
+  }
+
+  .telemetryGhost,
+  .liveEventStream {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 46px;
+    opacity: 0.5;
+    mix-blend-mode: normal;
+  }
+
+  .telemetryViewport {
+    height: 260px;
+  }
+
   .capabilityRow {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -357,6 +492,11 @@ h1 {
     padding: 108px 24px 70px;
   }
 
+  .heroImage {
+    background-position: center center;
+    filter: brightness(0.28) contrast(1.18) saturate(0.65);
+  }
+
   h1 {
     font-size: clamp(52px, 16vw, 84px);
     line-height: 0.88;
@@ -366,9 +506,9 @@ h1 {
     font-size: 18px;
   }
 
-  .liveReadout {
-    grid-template-columns: 1fr;
-    width: 100%;
+  .telemetryGhost,
+  .liveEventStream {
+    display: none;
   }
 
   .capabilities,
