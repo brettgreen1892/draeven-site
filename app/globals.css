@@ -148,11 +148,11 @@ a {
   background:
     linear-gradient(
       90deg,
-      rgba(2,1,6,0.85) 0%,
+      rgba(2,1,6,0.65) 0%,
       rgba(2,1,6,0.45) 25%,
       rgba(2,1,6,0.10) 50%,
       rgba(2,1,6,0.40) 75%,
-      rgba(2,1,6,0.85) 100%
+      rgba(2,1,6,0.65) 100%
     ),
 
     linear-gradient(
@@ -160,7 +160,7 @@ a {
       rgba(2,1,6,0.70) 0%,
       transparent 30%,
       transparent 70%,
-      rgba(2,1,6,0.88) 100%
+      rgba(2,1,6,0.75) 100%
     );
 }
 
@@ -397,27 +397,29 @@ a {
   background-position: center center;
   background-repeat: no-repeat;
   filter:
-    brightness(0.62)
-    contrast(1.14)
-    saturate(0.72);
+    brightness(0.82)
+    contrast(1.08)
+    saturate(0.85);
 }
 
 .sectionTwoGradient {
   position: absolute;
   inset: 0;
   z-index: 1;
+
   background:
     linear-gradient(
       90deg,
-      rgba(2,1,6,0.92) 0%,
-      rgba(2,1,6,0.68) 42%,
-      rgba(2,1,6,0.24) 100%
+      rgba(2,1,6,0.72) 0%,
+      rgba(2,1,6,0.48) 42%,
+      rgba(2,1,6,0.10) 100%
     ),
+
     linear-gradient(
       180deg,
-      rgba(2,1,6,0.90) 0%,
-      rgba(2,1,6,0.34) 48%,
-      rgba(0,0,0,0.96) 100%
+      rgba(2,1,6,0.70) 0%,
+      rgba(2,1,6,0.18) 48%,
+      rgba(0,0,0,0.82) 100%
     );
 }
 
@@ -610,9 +612,9 @@ a {
   background-position: 54% center;
   transform: scale(1.02);
   filter:
-    brightness(0.50)
-    contrast(1.15)
-    saturate(0.68);
+    brightness(0.72)
+    contrast(1.12)
+    saturate(0.78);
 }
 
 .heroTitle {
