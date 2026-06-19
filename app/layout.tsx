@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'PARALLAX | DRAEVEN',
+  title: '|DRAEVEN INDUSTRIES|',
 
   description:
     'Autonomous intelligence for degraded, contested, and disconnected environments.',
@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   keywords: [
     'Draeven',
     'Parallax',
+    'HollowVeil',
     'Autonomous Intelligence',
     'Defense Technology',
     'Decision Intelligence',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     'Belief State Intelligence',
     'Belief Engine',
     'Evidence Reservoir',
-    'Planetary Core',
+    'Hypersonic',
     'Temporal Prediction',
     'Sensor Fusion',
     'Edge Intelligence',
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
   applicationName: 'DRAEVEN',
 
   openGraph: {
-    title: 'PARALLAX | DRAEVEN',
+    title: 'DRAEVEN',
     description:
       'Autonomous intelligence for the edge of certainty.',
     siteName: 'DRAEVEN',
