@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: '|DRAEVEN|',
+  title: 'Scaling the Edge',
 
   description:
     'Autonomous intelligence for degraded, contested, and disconnected environments.',
