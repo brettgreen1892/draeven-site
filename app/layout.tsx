@@ -56,9 +56,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'PARALLAX | DRAEVEN',
+    title: '|DRAEVEN|',
     description:
-      'Autonomous intelligence for the edge of certainty.',
+      'Scaling the Edge.',
   },
 
   robots: {
